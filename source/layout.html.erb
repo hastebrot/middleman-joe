@@ -5,20 +5,36 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1' />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Blog Title<%= ' - ' + current_article.title unless current_article.nil? %></title>
+    <%= stylesheet_link_tag 'all' %>
+
+    <%= if current_page.data.description
+            "<meta name=\"description\" content=\"#{current_page.data.description}\" />"
+        end %>
+
+    <title><%= if current_article then current_article.title else "Firstname Lastname's Blog" end %></title>
     <%= feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed" %>
   </head>
   <body>
+    <navbar>
+      <h1 class="site-title"><a href="/">Firstname LASTNAME</a></h1>
+      <span class="social-links"></span>
+    </navbar>
 
     <div id="main" role="main">
+      <% unless current_article.nil? %>
+        <%= partial("article_heading", :locals => { :article => current_article }) %>
+      <% end %>
+
       <%= yield %>
     </div>
 
+    <!--
     <aside>
       <h2>Recent Articles</h2>
       <ol>
         <% blog.articles[0...10].each do |article| %>
-          <li><%= link_to article.title, article %> <span><%= article.date.strftime('%b %e') %></span></li>
+          <li><%= link_to article.title, article %>
+            <span><%= article.date.strftime('%^B %e, %Y') %></span></li>
         <% end %>
       </ol>
 
@@ -36,5 +52,6 @@
         <% end %>
       </ol>
     </aside>
+    -->
   </body>
 </html>
