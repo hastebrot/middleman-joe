@@ -1,7 +1,7 @@
 $break-small: 768px;
 $break-large: 1024px;
 
-@import 'highlighting.css';
+@import "highlighting.css";
 
 @mixin respond-to($media) {
   @if $media == handhelds {
@@ -55,12 +55,12 @@ body {
   margin: 0;
   padding: 0;
 
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 
   line-height: 1.6em;
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Libre Baskerville', serif;
+    font-family: "Libre Baskerville", serif;
     line-height: 1.3em;
     letter-spacing: 1px;
 
@@ -215,18 +215,18 @@ body {
   }
 }
 
-pre.highlight {
-  width: 100vw;
-  position: relative;
-  x: 0;
-}
+//pre.highlight {
+//  width: 100vw;
+//  position: relative;
+//  x: 0;
+//}
 
 navbar {
   display: block;
   margin-top: 1em;
 
   .site-title {
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
     margin: 0;
     font-size: 20px;
     color: #44522F;

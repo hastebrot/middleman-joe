@@ -5,9 +5,9 @@
 # Per-page layout changes:
 #
 # With no layout
-page '/*.xml', layout: false
-page '/*.json', layout: false
-page '/*.txt', layout: false
+page "/*.xml", layout: false
+page "/*.json", layout: false
+page "/*.txt", layout: false
 
 # With alternative layout
 # page "/path/to/file.html", layout: :otherlayout
@@ -25,9 +25,9 @@ activate :blog do |blog|
   # This will add a prefix to all links, template references and source paths
   # blog.prefix = "blog"
 
-  blog.permalink = "{title}"
+  blog.permalink = "{year}/{month}/{title}"
   # Matcher for blog source files
-  blog.sources = "articles/{title}.html"
+  blog.sources = "articles/{year}-{month}-{title}.html"
   # blog.taglink = "tags/{tag}.html"
   blog.layout = "layout"
   blog.summary_separator = /(READMORE)/
